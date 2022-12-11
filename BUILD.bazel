@@ -1,0 +1,12 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+load("@io_bazel_rules_docker//rust:image.bzl", "rust_image")
+
+rust_binary(
+    name = "hello_world",
+    srcs = ["src/main.rs"],
+)
+
+rust_image(
+    name = "hello_world_image",
+    binary = ":hello_world",
+)
